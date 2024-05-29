@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com"> 
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@500&family=Spartan:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com"> 
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="./styles.css">
+  <title>Planet facts</title>
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script defer src="tabs.js"></script>
+</head>
+<body>
+  <nav id="desktop-nav">
+    <div><p class="brand">the planets</p></div>
+    <ul class="nav-links">
+      <li><a href="#">mercury</a></li>
+      <li><a href="#">venus</a></li>
+      <li><a href="#">earth</a></li>
+      <li><a href="#">mars</a></li>
+      <li><a href="#">jupiter</a></li>
+      <li><a href="#">saturn</a></li>
+      <li><a href="#">uranus</a></li>
+      <li><a href="#">neptune</a></li>
+    </ul>    
+  </nav>
+  <nav id="hamburger-nav">
+    <div id="nav-brand"><p class="brand">the planets</p></div>
+    <div class="hamburger-menu">
+      <div class="hamburger-icon" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="menu-links ">
+        <li>
+          <a href="#home" onclick="toggleMenu()">
+            <p class="planet-name">
+              <img class="planet-icon" src="./assets/planet-mercury.svg" alt="mercury">mercury
+            </p>                
+            <img class="greaterThan-icon" src="./assets/icon-chevron.svg" alt="greaterThan  icon">
+          </a>
+        </li>
+        <li>
+          <a href="#home" onclick="toggleMenu()">
+            <p class="planet-name">
+              <img class="planet-icon" src="./assets/planet-venus.svg" alt="venus">venus
+            </p>                
+            <img class="greaterThan-icon" src="./assets/icon-chevron.svg" alt="greaterThan  icon">
+          </a>
+        </li>
+        <li>
+          <a href="#home" onclick="toggleMenu()">
+            <p class="planet-name">
+              <img class="planet-icon" src="./assets/planet-earth.svg" alt="earth">earth
+            </p>                
+            <img class="greaterThan-icon" src="./assets/icon-chevron.svg" alt="greaterThan  icon">
+          </a>
+        </li>
+        <li>
+          <a href="#home" onclick="toggleMenu()">
+            <p class="planet-name">
+              <img class="planet-icon" src="./assets/planet-mars.svg" alt="mars">mars
+            </p>                
+            <img class="greaterThan-icon" src="./assets/icon-chevron.svg" alt="greaterThan  icon">
+          </a>
+        </li>
+        <li>
+          <a href="#home" onclick="toggleMenu()">
+            <p class="planet-name">
+              <img class="planet-icon" src="./assets/planet-jupiter.svg" alt="jupiter">jupiter
+            </p>                
+            <img class="greaterThan-icon" src="./assets/icon-chevron.svg" alt="greaterThan  icon">
+          </a>
+        </li>
+        <li>
+          <a href="#home" onclick="toggleMenu()">
+            <p class="planet-name">
+              <img class="planet-icon" src="./assets/planet-saturn.svg" alt="saturn">saturn
+            </p>                
+            <img class="greaterThan-icon" src="./assets/icon-chevron.svg" alt="greaterThan  icon">
+          </a>
+        </li>
+        <li>
+          <a href="#home" onclick="toggleMenu()">
+            <p class="planet-name">
+              <img class="planet-icon" src="./assets/planet-uranus.svg" alt="uranus">uranus
+            </p>                
+            <img class="greaterThan-icon" src="./assets/icon-chevron.svg" alt="greaterThan  icon">
+          </a>
+        </li>
+        <li>
+          <a href="#home" onclick="toggleMenu()">
+            <p class="planet-name">
+              <img class="planet-icon" src="./assets/planet-neptune.svg" alt="neptune">neptune
+            </p>                
+            <img class="greaterThan-icon" src="./assets/icon-chevron.svg" alt="greaterThan  icon">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>  
+  <main>
+  <header>
+    <button id="overview-btn" class="active header-btn" value="overview" ><span>01</span> overview</button>
+    <button id="structure-btn" class="header-btn" value="structure"><span>02</span> structure</button>
+    <button id="surface-btn" class="header-btn" value="surface"><span>03</span> surface</button>
+  </header>  
+    <div class="img-div">
+      <img id="overview-img" class="hero-img" src="./assets/planet-earth.svg" alt="earth">
+      <img id="structure-img" class="hero-img d-none" src="./assets/planet-earth-internal.svg" alt="earth internal">
+      <img id="surface-img" class="hero-img d-none" src="./assets/geology-earth.png" alt="earth surface">
+    </div>
+    <div class="text-div">
+      <h1 id="planet-name" class="title">earth</h1>
+      <p id="planet-description" class="description">
+        Third planet from the Sun and the only known planet to harbor life. About 29.2% of Earth's surface is land with remaining 70.8% is covered with water. Earth's distance from the Sun, physical properties and geological history have allowed life to evolve and thrive.
+      </p>
+      <p id="planet-source">
+        <a id="source-link" href="" target="_blank">source: <span> wikipedia<img class="source-icon" src="./assets/icon-source.svg" alt="source icon"></span>
+        </a>
+      </p>
+    </div>
+    <ul class="info-div">
+      <li>rotation time<span id="rotation">0.99 days</span></li>
+      <li>revolution time<span id="revolution">365.26 days</span></li>
+      <li>radius<span id="radius">6,371 km</span></li>
+      <li>average temp.<span id="temperature">16°c</span></li>
+    </ul>    
+  </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="tabs.js"></script>
+</body>
+</html>

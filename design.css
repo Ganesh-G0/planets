@@ -1,0 +1,58 @@
+:root {
+  --white: 0 0% 100%;
+  --dark-blue: 240 67% 8%;
+  --light-gray-blue: 240 17% 26%;
+  --light-gray: 240 6% 54%;
+
+  --light-cyan: 194 48% 49%;
+  --light-orange: 33 82% 61%;
+  --dark-purple: 263 67% 65%;
+  --light-orangered: 10 63% 51%;
+
+  --dark-orangered: 2 68% 53%;
+  --dark-orange: 17 73% 46%;
+  --dark-cyan: 169 73% 44%;
+  --dark-lightblue: 222 87% 56%;
+}
+
+body {
+  color: hsl(var(--white));
+  background-color: hsl(var(--light-gray-blue));
+  background-color: hsl(var(--light-gray));
+  background-color: hsl(var(--light-cyan));
+  background-color: hsl(var(--light-orange));
+  background-color: hsl(var(--dark-purple));
+  background-color: hsl(var(--light-orangered));
+  background-color: hsl(var(--dark-orangered));
+  background-color: hsl(var(--dark-orange));
+  background-color: hsl(var(--dark-cyan));
+  background-color: hsl(var(--dark-lightblue));
+  background-color: hsl(var(--dark-blue));
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: uppercase;
+}
+.colors {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+#white {
+  color: hsl(var(--dark-blue));
+  background-color: hsl(var(--white));
+}
+#dark-blue {
+  border: 1px solid white;
+}
+.color-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.color {
+  display: flex;
+  flex-direction: column;
+}
