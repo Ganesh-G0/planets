@@ -129,22 +129,24 @@ nav {
   right: 0;
   z-index: 9;
   max-height: 0;
-  overflow: scroll;
-  position: absolute;
+  position: fixed;
   background: transparent;
   /* background-image: linear-gradient(180deg, #12a7e2, hotpink); */
   background-color: hsl(var(--dark-blue));
-  transform: translateX(70rem);
+  /* transform: translateX(70rem); */
+  overflow: hidden;
 }
 .menu-links.open {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: end;
+  justify-content: start;
+  justify-content: center;
   width: 100%;
-  min-height: 100dvh;
   padding: 1rem;
-  transform: translateX(0px);
+  min-height: 100%;
+  max-height: 100dvh;
+  /* transform: translateX(0px); */
   transition: all 0.3s ease-out;
 }
 .menu-links li { 
