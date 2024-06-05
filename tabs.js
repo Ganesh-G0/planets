@@ -3,7 +3,9 @@ function toggleMenu(e) {
   $('.menu-links').toggleClass('open');
 };
 $(document).ready(() => {  
-  getData(2);  // sets earth as a default value
+  // sets earth as a default value
+  getData(2);  
+  $(".img-div, header, body").addClass("earth");
 
   $('#overview-btn').addClass('active');
   $('#structure-btn').removeClass('active');
@@ -32,8 +34,6 @@ $(document).ready(() => {
       $('#overview-btn').removeClass('active');
       $('#structure-btn').removeClass('active');
       $('#surface-btn').addClass('active');
-      
-      // $("#overview-img").addClass('d-none');
       $("#overview-img").removeClass('d-none');
       $("#structure-img").addClass('d-none');
       $("#surface-img").removeClass('d-none');
@@ -42,14 +42,22 @@ $(document).ready(() => {
     $("li a").click((e) => {
       const planet = (e.target.innerText).toLowerCase();
       console.log(planet);
-      if (planet === "mercury") { getData(0); }
-      else if (planet === "venus") { getData(1); }
-      else if (planet === "earth") { getData(2); }
-      else if (planet === "mars") { getData(3); }
-      else if (planet === "jupiter") { getData(4); }
-      else if (planet === "saturn") { getData(5); }
-      else if (planet === "uranus") { getData(6); }
-      else if (planet === "neptune") { getData(7); }
+      $(".img-div, header, body").removeClass("mercury");
+      $(".img-div, header, body").removeClass("venus");
+      $(".img-div, header, body").removeClass("earth");
+      $(".img-div, header, body").removeClass("mars");
+      $(".img-div, header, body").removeClass("jupiter");
+      $(".img-div, header, body").removeClass("saturn");
+      $(".img-div, header, body").removeClass("uranus");
+      $(".img-div, header, body").removeClass("neptune");
+      if (planet === "mercury") { getData(0); $(".img-div, header, body").toggleClass("mercury");}
+      else if (planet === "venus") { getData(1); $(".img-div, header, body").toggleClass("venus");}
+      else if (planet === "earth") { getData(2); $(".img-div, header, body").toggleClass("earth");}
+      else if (planet === "mars") { getData(3); $(".img-div, header, body").toggleClass("mars");}
+      else if (planet === "jupiter") { getData(4); $(".img-div, header, body").toggleClass("jupiter");}
+      else if (planet === "saturn") { getData(5); $(".img-div, header, body").toggleClass("saturn");}
+      else if (planet === "uranus") { getData(6); $(".img-div, header, body").toggleClass("uranus");}
+      else if (planet === "neptune") { getData(7); $(".img-div, header, body").toggleClass("neptune");}
     })
     async function getData(index) {
       try {
