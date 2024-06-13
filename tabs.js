@@ -1,11 +1,11 @@
-function toggleMenu(e) {
+function toggleMenu() {
   $('.hamburger-icon').toggleClass('open');
   $('.menu-links').toggleClass('open');
 };
 $(document).ready(() => {  
   // sets earth as a default value
   getData(2);  
-  $(".img-div, header, body").addClass("earth");
+  $(".img-div, .btn-div, body").addClass("earth");
 
   $('#overview-btn').addClass('active');
   $('#structure-btn').removeClass('active');
@@ -44,24 +44,25 @@ $(document).ready(() => {
   $("li a").click((e) => {
     const planet = (e.target.innerText).toLowerCase();
       console.log(planet);
-      $(".img-div, header, body").removeClass("mercury");
-      $(".img-div, header, body").removeClass("venus");
-      $(".img-div, header, body").removeClass("earth");
-      $(".img-div, header, body").removeClass("mars");
-      $(".img-div, header, body").removeClass("jupiter");
-      $(".img-div, header, body").removeClass("saturn");
-      $(".img-div, header, body").removeClass("uranus");
-      $(".img-div, header, body").removeClass("neptune");
-      if (planet === "mercury") { getData(0); $(".img-div, header, body").toggleClass("mercury");}
-      else if (planet === "venus") { getData(1); $(".img-div, header, body").toggleClass("venus");}
-      else if (planet === "earth") { getData(2); $(".img-div, header, body").toggleClass("earth");}
-      else if (planet === "mars") { getData(3); $(".img-div, header, body").toggleClass("mars");}
-      else if (planet === "jupiter") { getData(4); $(".img-div, header, body").toggleClass("jupiter");}
-      else if (planet === "saturn") { getData(5); $(".img-div, header, body").toggleClass("saturn");}
-      else if (planet === "uranus") { getData(6); $(".img-div, header, body").toggleClass("uranus");}
-      else if (planet === "neptune") { getData(7); $(".img-div, header, body").toggleClass("neptune");}
+      $(".img-div, .btn-div, body").removeClass("mercury");
+      $(".img-div, .btn-div, body").removeClass("venus");
+      $(".img-div, .btn-div, body").removeClass("earth");
+      $(".img-div, .btn-div, body").removeClass("mars");
+      $(".img-div, .btn-div, body").removeClass("jupiter");
+      $(".img-div, .btn-div, body").removeClass("saturn");
+      $(".img-div, .btn-div, body").removeClass("uranus");
+      $(".img-div, .btn-div, body").removeClass("neptune");
+      if (planet === "mercury") { getData(0); $(".img-div, .btn-div, body").toggleClass("mercury");}
+      else if (planet === "venus") { getData(1); $(".img-div, .btn-div, body").toggleClass("venus");}
+      else if (planet === "earth") { getData(2); $(".img-div, .btn-div, body").toggleClass("earth");}
+      else if (planet === "mars") { getData(3); $(".img-div, .btn-div, body").toggleClass("mars");}
+      else if (planet === "jupiter") { getData(4); $(".img-div, .btn-div, body").toggleClass("jupiter");}
+      else if (planet === "saturn") { getData(5); $(".img-div, .btn-div, body").toggleClass("saturn");}
+      else if (planet === "uranus") { getData(6); $(".img-div, .btn-div, body").toggleClass("uranus");}
+      else if (planet === "neptune") { getData(7); $(".img-div, .btn-div, body").toggleClass("neptune");}
   })
-    async function getData(index) {
+
+  async function getData(index) {
       try {
         const response = await axios.get("./data.json");
 
@@ -109,5 +110,5 @@ $(document).ready(() => {
       } catch (error) {
         console.error(error);
       }
-    };  
+  };  
 });
