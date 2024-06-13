@@ -39,6 +39,8 @@ body {
   color: hsl(var(--white));
   background-color: hsl(var(--dark-blue));
   background-image: url(./assets/background-stars.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 h1,
 h2 {
@@ -70,16 +72,21 @@ li {
   list-style: none;
 }
 /* --------------------------------------------------------Nav */
+header {
+  width: 100%;
+  height: 100%;
+}
 nav {
   margin: 0;
   padding: 0;
+  height: 100%;
   width: 100%;
   font-family: var(--ff-anton);
   background-color: transparent;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 .brand {
-  font-size: 3rem;
+  font-size: calc(2.5rem + 1dvw);
   padding-left: 1rem;
   text-transform: uppercase;
   font-family: "Antonio", sans-serif;
@@ -90,12 +97,15 @@ nav {
 #desktop-nav {
   display: none;
 }
+#hamburger-nav {
+  padding: 1rem;
+}
 .hamburger-icon {
   top: 0;
   right: 0;
   position: absolute;
-  width: 3rem;
-  height: 2rem;
+  width: calc(3rem + 1dvw);
+  height: calc(1.5rem + 1dvh);
   cursor: pointer;
   margin: 1.5rem 1rem;
   display: flex;
@@ -104,7 +114,8 @@ nav {
   background-color: hsl(var(--dark-blue));
 }
 .hamburger-icon span {
-  height: 2px;
+  height: .4rem;
+  border-radius: .5rem;
   z-index: 10;
   background-color: hsl(var(--white));
   transition: all 0.3s ease-in-out;
@@ -175,7 +186,7 @@ nav {
 .greaterThan-icon {
   width: 1rem;
 }
-/* ---------------------------------------------------------Mobile Nav */
+/* -------------------------------------Mobile Nav */
 @media (hover: hover) {
   .menu-links > li:nth-child(1) > a:hover {
     border-color: hsl(var(--light-cyan));
@@ -232,14 +243,15 @@ nav {
 main {
   gap: 2rem;
   width: 100%;
-  display: grid;
+  display: grid;  
   text-align: center;
   align-items: center;
+  margin: 0 auto 2rem;
   grid-template-columns: 1fr;
-  grid-template-areas: "head" "img" "txt" "info";
+  grid-template-areas: "btn-div" "img" "txt" "info";
 }
-header {
-  grid-area: head;
+.btn-div {
+  grid-area: btn-div;
 }
 .img-div {
   grid-area: img;
@@ -250,57 +262,60 @@ header {
 .info-div {
   grid-area: info;
 }
-/* ----------------------------------------------overview header */
-header {
+/* ----------------------------------------------overview .btn-div */
+.btn-div {
   gap: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-around;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
-header > button {
+.btn-div > button {
   border: 0;
   padding: 1rem;
-  font-size: 2.5rem;
+  font-size: calc(1.2rem + 1dvw);
+  letter-spacing: .2rem;
   text-transform: uppercase;
+  font-family: var(--ff-league);
   font-family: var(--ff-anton);
-  background-color: transparent;
-  color: hsl(var(--white));
+  background-color: hsl(var(--dark-blue));
+  color: hsl(var(--white) / .5);
   border-bottom: 4px solid transparent;
   cursor: pointer;
 }
-header > button > span {
+.btn-div > button > span {
   display: none;
 }
-header > button.active {
+.btn-div > button.active {
+  color: hsl(var(--white));
   border-bottom: 4px solid hsl(var(--dark-purple));
 }
-header > button:hover {
+.btn-div > button:hover {
   border-color: hsl(var(--light-gray-blue));
 }
 /* ----------------------------------------------planet specific color */
-header.mercury > button.active {
+.btn-div.mercury > button.active {
   border-color: hsl(var(--light-cyan));
 }
-header.venus > button.active {
+.btn-div.venus > button.active {
   border-color: hsl(var(--light-orange));
 }
-header.earth > button.active {
+.btn-div.earth > button.active {
   border-color: hsl(var(--dark-purple));
 }
-header.mars > button.active {
+.btn-div.mars > button.active {
   border-color: hsl(var(--dark-orange));
 }
-header.jupiter > button.active {
+.btn-div.jupiter > button.active {
   border-color: hsl(var(--dark-orange));
 }
-header.saturn > button.active {
+.btn-div.saturn > button.active {
   border-color: hsl(var(--dark-orangered));
 }
-header.uranus > button.active {
+.btn-div.uranus > button.active {
   border-color: hsl(var(--dark-cyan));
 }
-header.neptune > button.active {
+.btn-div.neptune > button.active {
   border-color: hsl(var(--dark-lightblue));
 }
 /* -------------------------------------img div*/
@@ -359,29 +374,28 @@ header.neptune > button.active {
   margin: auto;
 }
 .planet-text > .title {
-  font-size: 6rem;
-  font-weight: 100;
   text-transform: uppercase;
+  font-size: calc(5rem + 1dvw);
   font-family: var(--ff-anton);
 }
 .planet-text > .description {
   max-width: 62ch;
-  text-wrap: pretty;
-  font-size: 1.5rem;
-  color: hsl(var(--white) / 0.7);
+  text-wrap: stable;
+  font-size: calc(1.1rem + 1dvw);
+  color: hsl(var(--white) / 0.6);
   font-family: var(--ff-league);
 }
 #planet-source {
-  font-family: var(--ff-league);
-  text-transform: capitalize;
   display: flex;
   gap: 0.5rem;
-  font-size: 2.5rem;
   font-weight: 100;
-  color: hsl(var(--light-gray) / 0.6);
+  text-transform: capitalize;
+  font-family: var(--ff-league);
+  font-size: 2rem;
+  color: hsl(var(--light-gray) / 0.59);
 }
 #planet-source > a {
-  color: hsl(var(--light-gray));
+  color: hsl(var(--light-gray) / .9);
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -398,11 +412,13 @@ header.neptune > button.active {
   width: 90%;
   gap: 0.8rem;
   margin: 0 auto 2rem;
+  align-items: center;
 }
 .info-div > li {
   width: 100%;
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-size: calc(1.2rem + .4dvw);
+  font-weight: 100;
   padding: 1rem 2rem;
   letter-spacing: 0.1rem;
   text-transform: uppercase;
@@ -410,14 +426,16 @@ header.neptune > button.active {
   align-items: center;
   justify-content: space-between;
   color: hsl(var(--light-gray));
+  background-color: hsl(var(--dark-blue));
   font-family: var(--ff-league);
-  border: 2px solid hsl(var(--light-gray-blue));
+  font-family: var(--ff-anton);
+  border: 1px solid hsl(var(--light-gray-blue));
 }
 .info-div > li > span {
   font-size: 2rem;
+  font-size: calc(2rem + 1dvw);
   font-weight: 100;
   color: hsl(var(--white));
-  font-family: var(--ff-anton);
 }
 /* -------------------------------------Tablet */
 @media (min-width: 768px) {
@@ -426,9 +444,8 @@ header.neptune > button.active {
   }
   #desktop-nav {
     display: flex;
-    align-items: center;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
     justify-content: space-between;
     background-color: transparent;
     font-size: 2rem;
@@ -440,16 +457,15 @@ header.neptune > button.active {
     align-items: center;
     justify-content: space-between;
     text-transform: uppercase;
-    font-size: 1.5rem;
-    margin: 2rem auto;
+    margin: 2rem;
   }
   .nav-links a {
+    font-size: calc(1.5rem + 1dvw);
     padding: 0.5rem 1rem;
     color: hsl(var(--white));
     border-top: 5px solid transparent;
     transition: all ease-in 200ms;
   }
-  /* --------------------------------------------------------Desktop Nav */
   @media (hover: hover) {
     body.mercury .nav-links a:hover {
       border-color: hsl(var(--light-cyan));
@@ -503,74 +519,79 @@ header.neptune > button.active {
     }
   }
   main {
-    column-gap: 4rem;
-    width: 90%;
+    gap: 4rem;
+    max-width: 90%;
     min-height: 90dvh;
     align-items: center;
+    align-items: end;
+    justify-content: start;
     grid-template-columns: 1.5fr 1fr;
-    grid-template-areas: "img img" "txt head" "info info";
+    grid-template-areas: "img img" "txt btn-div" "info info";
   }
-  header {
+  .btn-div {
     gap: 2rem;
     border: 0;
     align-items: center;
     justify-content: end;
     flex-direction: column;
   }
-  header > button {
+  .btn {
+    gap: 1rem;
+    display: flex;
+    align-items: center;
+  }
+  .btn-div > button {
     width: 100%;
     font-size: 2rem;
     text-align: left;
-    font-weight: 100;
-    letter-spacing: 0.1rem;
-    font-family: var(--ff-anton);
-    border: 1px solid hsl(var(--light-gray));
-  }
-  header > button:nth-child(2) span::after {
-    content: "internal";
-    margin-left: 0.5rem;
+    font-weight: 500;
     color: hsl(var(--white));
+    border: 1px solid hsl(var(--light-gray-blue) );
   }
-  header > button:nth-child(3)::after {
-    content: "geology";
-    margin-left: 0.5rem;
-    color: hsl(var(--white));
+  .btn-div > button > span {
+    color: hsl(var(--light-gray));
   }
-  header > button > span {
+  .btn-div > button:nth-child(2) > p::before {
+    content: "internal ";
+  }
+  .btn-div > button:nth-child(3) p::after {
+    content: " geology";
+  }
+  .btn-div > button > span {
     display: inline-block;
     color: hsl(var(--white) / 0.6);
   }
-  header > button.active {
+  .btn-div > button.active {
     border: 0;
     background-color: hsl(var(--dark-purple));
   }
-  header > button:hover {
+  .btn-div > button:hover {
     border: 0;
     background-color: hsl(var(--light-gray-blue));
   }
   /* ----------------------------------------------planet specific color */
-  header.mercury > button.active {
+  .btn-div.mercury > button.active {
     background-color: hsl(var(--light-cyan));
   }
-  header.venus > button.active {
+  .btn-div.venus > button.active {
     background-color: hsl(var(--light-orange));
   }
-  header.earth > button.active {
+  .btn-div.earth > button.active {
     background-color: hsl(var(--dark-purple));
   }
-  header.mars > button.active {
+  .btn-div.mars > button.active {
     background-color: hsl(var(--dark-orange));
   }
-  header.jupiter > button.active {
+  .btn-div.jupiter > button.active {
     background-color: hsl(var(--dark-orange));
   }
-  header.saturn > button.active {
+  .btn-div.saturn > button.active {
     background-color: hsl(var(--dark-orangered));
   }
-  header.uranus > button.active {
+  .btn-div.uranus > button.active {
     background-color: hsl(var(--dark-cyan));
   }
-  header.neptune > button.active {
+  .btn-div.neptune > button.active {
     background-color: hsl(var(--dark-lightblue));
   }
   /* ----------------------------------------------planet specific size */
@@ -606,17 +627,15 @@ header.neptune > button.active {
     flex-direction: column;
     justify-content: center;
     align-items: start;
-    gap: 4rem;
+    gap: 2rem;
   }
   .planet-text {
     align-items: start;
   }
-  .planet-text > .title {
-    font-size: 8rem;
-  }
   .planet-text > .description {
-    font-size: 1.92rem;
-  }
+    font-size: 2rem;
+    font-size: calc(1.5rem + .3dvw);
+  }  
   .info-div {
     display: flex;
     flex-direction: row;
@@ -629,72 +648,75 @@ header.neptune > button.active {
     flex-direction: column;
     padding: 1rem;
   }
-  .info-div li span {
-    font-size: 3rem;
-  }
 }
-
+/* --------------------------------------------------------Desktop Nav */
 @media (min-width: 1024px) {
   #desktop-nav {
     flex-direction: row;
+    justify-content: space-between;
+  }
+  .nav-links {
+    margin: 1rem;
   }
   .nav-links li a {
-    font-size: 2.5rem;
-    padding-top: 1.5rem;
+    padding-top: .5rem;
   }
   main {
-    min-height: 90dvh;
-    max-width: 1200px;
+    margin: 1rem auto 2rem;
     align-items: center;
-    grid-template-columns: 1.5fr 1fr;
-    grid-template-rows: 1fr 0.5fr;
+    justify-content: start;
+    justify-content: center;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr .5fr .2fr;
+    gap: 2rem;
     grid-template-areas:
       "img txt"
-      "img head"
+      "img btn-div"
       "info info";
   }
   .text-div,
-  header,
-  .info-div {
+  .btn-div,
+  .info-div, .img-div {
     margin: 0;
-  }
-  .text-div,
-  header {
-    width: 80%;
-  }
-  .info-div {
-    width: 92%;
+    padding: 0;
+    height: 100%;
+    width: 100%;
   }
   /* ----------------------------------------------planet specific size */
   .img-div.mercury > img {
-    max-width: 290px;
+    max-width: 29rem;
   }
   .img-div.venus > img {
-    max-width: 400px;
+    max-width: 40rem;
   }
   .img-div.earth > img {
-    max-width: 450px;
+    max-width: 45rem;
   }
   .img-div.mars > img {
-    max-width: 336px;
+    max-width: 33.6rem;
   }
   .img-div.jupiter > img {
-    max-width: 582px;
+    max-width: 58.2rem;
   }
   .img-div.saturn > img {
-    max-width: 666.09px;
+    max-width: 66.609rem;
   }
   .img-div.saturn > img {
-    max-width: 600px;
+    max-width: 60rem;
   }
   .img-div.uranus > img {
-    max-width: 458px;
+    max-width: 45.8rem;
   }
   .img-div.neptune > img {
-    max-width: 450px;
+    max-width: 45rem;
   }
 }
-
+@media (min-width:1200px) {
+  main {
+    max-width: 80%;
+  }
+}
 .d-none {
   display: none;
 }
+

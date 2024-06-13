@@ -11,9 +11,7 @@ $(document).ready(() => {
   $('#structure-btn').removeClass('active');
   $('#surface-btn').removeClass('active');
   
-  $(".header-btn").click(function (e) {
-    const input = e.target.value;
-    if (input === "overview") {
+  $("#overview-btn").click(() => {
       $('#overview-btn').addClass('active');
       $('#structure-btn').removeClass('active');
       $('#surface-btn').removeClass('active');
@@ -21,26 +19,30 @@ $(document).ready(() => {
       $("#overview-img").removeClass('d-none');
       $("#structure-img").addClass('d-none');
       $("#surface-img").addClass('d-none');
-    } else if (input === "structure") {
-      $('#overview-btn').removeClass('active');
-      $('#structure-btn').addClass('active');
-      $('#surface-btn').removeClass('active');        
-      
-      $("#overview-img").addClass('d-none');
-      $("#structure-img").removeClass('d-none');
-      $("#surface-img").addClass('d-none');
-
-    } else if (input === "surface") {
-      $('#overview-btn').removeClass('active');
-      $('#structure-btn').removeClass('active');
-      $('#surface-btn').addClass('active');
-      $("#overview-img").removeClass('d-none');
-      $("#structure-img").addClass('d-none');
-      $("#surface-img").removeClass('d-none');
-    }
   });
-    $("li a").click((e) => {
-      const planet = (e.target.innerText).toLowerCase();
+   
+  $("#structure-btn").click(() => {
+    $('#overview-btn').removeClass('active');
+    $('#structure-btn').addClass('active');
+    $('#surface-btn').removeClass('active');
+    
+    $("#overview-img").addClass('d-none');
+    $("#structure-img").removeClass('d-none');
+    $("#surface-img").addClass('d-none');
+  });
+ 
+  $("#surface-btn").click(() => {
+  $('#overview-btn').removeClass('active');
+  $('#structure-btn').removeClass('active');
+  $('#surface-btn').addClass('active');
+  
+  $("#overview-img").removeClass('d-none');
+  $("#structure-img").addClass('d-none');
+  $("#surface-img").removeClass('d-none');
+  });
+
+  $("li a").click((e) => {
+    const planet = (e.target.innerText).toLowerCase();
       console.log(planet);
       $(".img-div, header, body").removeClass("mercury");
       $(".img-div, header, body").removeClass("venus");
@@ -58,7 +60,7 @@ $(document).ready(() => {
       else if (planet === "saturn") { getData(5); $(".img-div, header, body").toggleClass("saturn");}
       else if (planet === "uranus") { getData(6); $(".img-div, header, body").toggleClass("uranus");}
       else if (planet === "neptune") { getData(7); $(".img-div, header, body").toggleClass("neptune");}
-    })
+  })
     async function getData(index) {
       try {
         const response = await axios.get("./data.json");

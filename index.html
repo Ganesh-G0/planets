@@ -17,9 +17,10 @@
   <script defer src="tabs.js"></script>
 </head>
 <body>
-  <nav id="desktop-nav">
-    <div><p class="brand">the planets</p></div>
-    <ul class="nav-links">
+  <header>
+    <nav id="desktop-nav">
+      <p class="brand">the planets</p>
+      <ul class="nav-links">
       <li><a href="#">mercury</a></li>
       <li><a href="#">venus</a></li>
       <li><a href="#">earth</a></li>
@@ -28,10 +29,10 @@
       <li><a href="#">saturn</a></li>
       <li><a href="#">uranus</a></li>
       <li><a href="#">neptune</a></li>
-    </ul>    
-  </nav>
-  <nav id="hamburger-nav">
-    <div><p class="brand">the planets</p></div>
+      </ul>    
+    </nav>
+    <nav id="hamburger-nav">
+    <p class="brand">the planets</p>
     <div class="hamburger-menu">
       <div class="hamburger-icon" onclick="toggleMenu()">
         <span></span>
@@ -105,13 +106,20 @@
         </li>
       </ul>
     </div>
-  </nav>  
+    </nav>  
+  </header>
   <main>
-    <header>
-      <button id="overview-btn" class="active header-btn" value="overview" ><span>01</span> overview</button>
-      <button id="structure-btn" class="header-btn" value="structure"><span>02</span> structure</button>
-      <button id="surface-btn" class="header-btn" value="surface"><span>03</span> surface</button>
-    </header>  
+    <div class="btn-div">
+      <button id="overview-btn" class="active btn" value="overview" >
+        <span>01</span><p>overview</p>
+      </button>
+      <button id="structure-btn" class="btn" value="structure">
+        <span>02</span><p>structure</p>
+      </button>
+      <button id="surface-btn" class="btn" value="surface">
+        <span>03</span><p>surface</p>
+      </button>
+    </div>  
     <div class="img-div">
         <img id="overview-img" class="hero-img spin" src="./assets/planet-earth.svg" alt="earth">
         <img id="structure-img" class="hero-img spin d-none" src="./assets/planet-earth-internal.svg" alt="earth internal">
