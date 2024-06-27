@@ -23,7 +23,18 @@
   box-sizing: border-box;
 }
 html {
-  font-size: 62.5%;
+  font-size: 62.5%;  
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: .5rem; 
+  border-radius: 1rem;
+  background: transparent; 
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 1rem;  
+  background: hsl(var(--white));
 }
 body {
   min-height: 100dvh;
